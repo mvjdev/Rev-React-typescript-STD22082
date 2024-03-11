@@ -12,6 +12,7 @@ export const Task = () => {
   const [title, setTitle] = useState<string>("");
   const [searchKeyword, setSearchKeyword] = useState<string>("");
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [editing, setEditing] = useState<boolean>(false);
 
   // remove task from list
   const completeTask = (id: string) => {
@@ -50,6 +51,9 @@ export const Task = () => {
     task.title.toLowerCase().includes(searchKeyword.toLowerCase())
   );
 
+  const saveEdit = () => {
+    setEditing(!editing);
+  };
   return (
     <div className="container">
       <h1>Task Manager</h1>
